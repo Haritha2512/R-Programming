@@ -1,0 +1,24 @@
+advertising <- read.csv("advertising.csv")
+
+print(advertising)
+
+model <- lm(Sales ~ Spend, data = advertising)
+
+print(summary(model))
+
+predicted_sales <- predict(model)
+
+print(predicted_sales)
+
+new_data <- data.frame(Spend = c(100, 200, 300))
+
+predicted_new_sales <- predict(model, newdata = new_data)
+
+print(predicted_new_sales)
+
+plot(advertising$Spend, advertising$Sales,
+     main = "Advertising Spend vs Sales",
+     xlab = "Spend",
+     ylab = "Sales")
+
+abline(model)
