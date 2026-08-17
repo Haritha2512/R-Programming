@@ -1,0 +1,26 @@
+x <- c(10, 20, 30, 40, 50)
+y <- c(15, 25, 35, 45, 55)
+
+boxplot(x,
+        main = "Boxplot",
+        ylab = "Values")
+
+hist(x,
+     main = "Histogram",
+     xlab = "Values")
+
+barplot(x,
+        names.arg = c("A", "B", "C", "D", "E"),
+        main = "Bar Plot",
+        ylab = "Values")
+
+plot(x, y,
+     type = "l",
+     main = "Line Chart",
+     xlab = "X",
+     ylab = "Y")
+
+plot(x, y,
+     main = "Scatter Plot",
+     xlab = "X",
+     ylab = "Y")
