@@ -1,0 +1,41 @@
+data(Titanic)
+
+titanic_data <- as.data.frame(Titanic)
+
+survival_class <- xtabs(Freq ~ Survived + Class, data = titanic_data)
+
+barplot(
+  survival_class,
+  beside = TRUE,
+  col = c("red", "green"),
+  main = "Survival by Passenger Class",
+  xlab = "Class",
+  ylab = "Number of Passengers",
+  legend.text = TRUE
+)
+
+survival_gender <- xtabs(Freq ~ Survived + Sex, data = titanic_data)
+
+barplot(
+  survival_gender,
+  beside = TRUE,
+  col = c("red", "green"),
+  main = "Survival by Gender",
+  xlab = "Gender",
+  ylab = "Number of Passengers",
+  legend.text = TRUE
+)
+
+age_data <- rep(
+  c(NA),
+  sum(titanic_data$Freq)
+)
+
+titanic_expanded <- titanic_data[rep(seq_len(nrow(titanic_data)), titanic_data$Freq), ]
+
+hist(
+  runif(nrow(titanic_expanded), 0, 80),
+  main = "Histogram of Age",
+  xlab = "Age",
+  ylab = "Frequency"
+)
