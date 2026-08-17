@@ -1,0 +1,28 @@
+numbers <- c(10, 20, 30, 40, 50)
+
+marks <- matrix(
+  c(80, 85, 90, 75, 88, 92),
+  nrow = 2,
+  ncol = 3
+)
+
+square <- function(x) {
+  return(x^2)
+}
+
+my_list <- list(
+  Numbers = numbers,
+  Marks = marks,
+  Square_Function = square
+)
+
+print(my_list)
+
+print(my_list$Numbers)
+print(my_list$Marks)
+print(my_list$Square_Function)
+
+result <- my_list$Square_Function(5)
+print(result)
+
+print(names(my_list))
