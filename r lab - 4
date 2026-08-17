@@ -1,0 +1,25 @@
+# Create vectors
+students <- c(80, 85, 90, 75)
+subjects <- c("Maths", "Science", "English")
+
+# Create an array from vectors
+marks <- array(
+  c(80, 85, 90, 75, 70, 88, 95, 82, 78, 90, 85, 92),
+  dim = c(4, 3),
+  dimnames = list(
+    Student = c("Student1", "Student2", "Student3", "Student4"),
+    Subject = subjects
+  )
+)
+
+# Print the complete array
+print(marks)
+
+# Print a specific element
+print(marks["Student1", "Maths"])
+
+# Print marks of Student2
+print(marks["Student2", ])
+
+# Print all Science marks
+print(marks[, "Science"])
