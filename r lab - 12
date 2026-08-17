@@ -1,0 +1,35 @@
+library(reshape2)
+
+data(airquality)
+
+airquality$Month <- factor(airquality$Month,
+                           levels = 5:9,
+                           labels = c("May", "June", "July", "August", "September"))
+
+melted_data <- melt(
+  airquality,
+  id.vars = c("Month", "Day"),
+  measure.vars = c("Ozone", "Solar.R", "Wind", "Temp"),
+  variable.name = "Variable",
+  value.name = "Value"
+)
+
+print(melted_data)
+
+casted_data <- dcast(
+  melted_data,
+  Month ~ Variable,
+  fun.aggregate = mean,
+  na.rm = TRUE
+)
+
+print(casted_data)
+
+monthly_averages <- aggregate(
+  cbind(Ozone, Solar.R, Wind, Temp) ~ Month,
+  data = airquality,
+  FUN = mean,
+  na.rm = TRUE
+)
+
+print(monthly_averages)
