@@ -1,0 +1,13 @@
+plot(1:10, 1:10, type = "n",
+     xlim = c(0, 20),
+     ylim = c(0, 20),
+     xlab = "X-axis",
+     ylab = "Y-axis",
+     main = "Empty Plot")
+
+plot(1:10, 1:10, type = "n",
+     xlim = c(-10, 10),
+     ylim = c(-10, 10),
+     xlab = "X-axis",
+     ylab = "Y-axis",
+     main = "Empty Plot with Negative Limits")
