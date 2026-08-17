@@ -1,0 +1,38 @@
+data(iris)
+
+set.seed(123)
+
+train_index <- sample(1:nrow(iris), 0.8 * nrow(iris))
+
+train_data <- iris[train_index, ]
+test_data <- iris[-train_index, ]
+
+model <- glm(
+  Species ~ Petal.Length + Petal.Width,
+  data = train_data,
+  family = binomial
+)
+
+print(summary(model))
+
+predicted_prob <- predict(model, newdata = test_data, type = "response")
+
+predicted_species <- ifelse(
+  predicted_prob > 0.5,
+  "virginica",
+  "setosa"
+)
+
+predicted_species <- factor(
+  predicted_species,
+  levels = levels(test_data$Species)
+)
+
+print(predicted_species)
+
+confusion_matrix <- table(
+  Actual = test_data$Species,
+  Predicted = predicted_species
+)
+
+print(confusion_matrix)
