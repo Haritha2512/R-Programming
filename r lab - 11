@@ -1,0 +1,11 @@
+data <- read.csv("exam_data.csv")
+
+print(data)
+
+print(head(data))
+
+print(dim(data))
+
+print(names(data))
+
+print(str(data))
